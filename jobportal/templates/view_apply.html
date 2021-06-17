@@ -1,0 +1,49 @@
+{% extends 'recruiter_nav.html' %}
+{% block body %}
+
+<center><marquee style = "font-family : 'Monotype Corsiva' ; font-size:30px;color :darkcyan
+ ; background-color:black;font-weight : bold;"> Applied Job List</marquee></center><hr>
+
+ <div class="container">
+<table class="table table-bordered" id="myTable">
+  <thead>
+  <tr >
+    <th>Sr. No</th>
+    <th>FullName</th>
+    <th>Email Id</th>
+    <th>Title</th>
+    <th>contact</th>
+    <th>Company</th>
+    <th>Resume</th>
+  </tr>
+  </thead>
+   <tbody>
+
+{% for i in data %}
+{% ifequal request.user.username i.job.recruiter.user.username %}
+
+  <tr style="color:black">
+      <td>{{forloop.counter}}</td>
+    <td>{{i.sign.user.username}} {{i.sign.user.last_name}} </td>
+    <td>{{i.sign.user.email}}</td>
+      <td>{{i.job.title}}</td>
+      <td>{{i.sign.mobile}}</td>
+      <td>{{i.job.recruiter.company}}</td>
+        <td><a href="{{i.image.url}}" download>Download Resume</a></td>
+
+</tr>
+
+   {% endifequal %}
+   {% endfor %}
+
+    </tbody>
+</table>
+
+ </div>
+<script>
+            var el_up = document.getElementById("GFG_UP");
+
+            el_up.innerHTML =
+                "Click on the LINK for further confirmation.";
+</script>
+{% endblock %}

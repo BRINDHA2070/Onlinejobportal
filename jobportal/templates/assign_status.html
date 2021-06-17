@@ -1,0 +1,31 @@
+{% extends 'admin_nav.html' %}
+{% block body %}
+{% load static %}
+{% ifequal error "yes" %}
+<script>
+    alert('Assign Status successfully');
+    window.location=('{% url 'view_newrecruiter' %}');
+</script>
+{% endifequal %}
+
+<center><h2 style = "font-family : 'Monotype Corsiva' ; color : #E6120E ; font-weight : bold;margin-top:2%">View Recruiter</h2></center><hr>
+<div class="container-fluid" style="width:70%;margin-top:2%;background-color:burlywood;margin-bottom:3%">
+
+      <form method="post" action="">
+              <center> <label for="exampleInputEmail1" >Email ID</label>
+        <input name="email" value="{{data.user.email}}" readonly style="width:60%;height:40px;margin-top:4%;margin-left:70px"></center><br><br>
+
+          <center> <label for="exampleInputEmail1">Assign Status</label>
+    {% csrf_token %}
+  <select name="status" id="cars" style="border:2px solid black;width:60%;height:40px;margin-left:30px">
+      <option disabled selected>Choose Status</option>
+      <option value="accept">Accept</option>
+      <option value="reject">Reject</option>
+  </select></center>
+  <center><button type="submit" class="btn btn-danger" style="margin-top:2%;width:170px;height:30px;margin-bottom:2%;background-color:darkcyan;font-size:15px">SUBMIT</button>
+</center>
+      </form>
+    </div>
+
+
+{% endblock %}

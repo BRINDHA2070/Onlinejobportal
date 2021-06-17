@@ -1,0 +1,51 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.bottom-right button {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  margin-right:9%;
+  margin-bottom:10%;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
+<div class="container-fluid" style="width:100%;margin-top:1%">
+  <img src="{% static 'images/portal5.jpg' %}" alt="Snow" style=" height:450px;width:100%;">
+</div>
+
+{% block body1 %}
+{% endblock %}
+{% endblock %}

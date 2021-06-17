@@ -1,0 +1,109 @@
+{% extends 'recruiter_nav.html' %}
+{% load static %}
+{% block body %}
+<style>
+glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+/* Rounded border */
+hr.rounded {
+  border-top: 8px solid lightblue;
+  border-radius: 5px;
+}
+
+.prjdiv:hover{
+transform:translateY(-10px)
+}
+div .container1{
+
+width:100%;
+background-color:lightgrey;
+border-radius:8px;
+}
+h2, h4{
+ padding:10Px;
+}
+</style>
+
+<div class="container" style="background-color:Cadetblue;height:600px;width:850px;margin-top:3%">
+    <div class="row" style="margin-top:1%;margin-left:20%">
+        <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;margin-left:23%">
+           <img src="{{data.image.url}}" style="width:190px;height:150px;border-radius:30%">
+        </div>
+
+    </div>
+
+    <div class="row" style="margin-top:3%;margin-left:20%">
+        <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px">
+            Company
+        </div>
+         <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;color:maroon">
+           {{data.company}}
+        </div>
+    </div>
+    <div class="row" style="margin-top:1%;margin-left:20%">
+        <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px">
+            First Name
+        </div>
+         <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;color:maroon">
+           {{data.user.username}}
+        </div>
+    </div>
+     <div class="row" style="margin-top:1%;margin-left:20%">
+        <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px">
+            Last Name
+        </div>
+         <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;color:maroon">
+           {{data.user.last_name}}
+        </div>
+    </div>
+     <div class="row" style="margin-top:1%;margin-left:20%">
+        <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;">
+            Email ID
+        </div>
+         <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;color:maroon">
+           {{data.user.email}}
+        </div>
+    </div>
+     <div class="row" style="margin-top:1%;margin-left:20%">
+        <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;">
+           Contact NO.
+        </div>
+         <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;color:maroon">
+           {{data.mobile}}
+        </div>
+    </div>
+     <div class="row" style="margin-top:1%;margin-left:20%">
+        <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;">
+           Gender
+        </div>
+         <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;color:maroon">
+           {{data.gender}}
+        </div>
+    </div>
+     <div class="row" style="margin-top:1%;margin-left:20%">
+
+         <div class="col-md-6" style="font-family : 'Monotype Corsiva' ; font-size:30px;color:white;margin-left:22%;margin-top:2%">
+             <a href="{% url 'edit_profile' %}" style="background-color:maroon;">Edit Profile</a>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}

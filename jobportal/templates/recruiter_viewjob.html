@@ -1,0 +1,54 @@
+{% extends 'recruiter_nav.html' %}
+{% block body %}
+
+<center><marquee style = "font-family : 'Monotype Corsiva' ; font-size:30px;color :darkcyan
+ ; background-color:black;font-weight : bold;">Job List</marquee></center><hr>
+<div class="container" style="margin-top:1%">
+</div>
+ <div class="container">
+<table class="table table-bordered" id="myTable">
+  <thead>
+  <tr >
+    <th>Sr. No</th>
+    <th>Company</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Experience </th>
+    <th>Location</th>
+    <th>Post_Date</th>
+    <th>Last_date</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+   <tbody>
+
+{% for i in data %}
+
+  <tr style="color:black">
+      <td>{{forloop.counter}}</td>
+    <td>{{i.recruiter.company}} </td>
+    <td>{{i.title}}</td>
+    <td>{{i.description}}</td>
+    <td>{{i.experience}}</td>
+      <td>{{i.location}}</td>
+      <td>{{i.start_date}}</td>
+      <td>{{i.end_date}}</td>
+
+ <td><a href="{% url 'delete_job' i.id %}"><i class="glyphicon glyphicon-trash" onclick="return confirm('Are you sure?')" style="color:white;margin-left:20px;margin-top:3%;background-color:navy;height:40px;width:70px;padding-top:5%;padding-left:25%"></i></a>
+
+</tr>
+
+   {% endfor %}
+
+    </tbody>
+</table>
+
+ </div>
+
+<script>
+            var el_up = document.getElementById("GFG_UP");
+
+            el_up.innerHTML =
+                "Click on the LINK for further confirmation.";
+</script>
+{% endblock %}
