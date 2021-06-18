@@ -1,7 +1,7 @@
 # Onlinejobportal
 Online job Portal System for EAD
                   
-          ONLINE INTERVIEW PROCESSING SYSTEM is about the recruitment process which is done online. The interview process here is handled by the system.  It will help job 
+          ONLINE INTERVIEW PROCESSING SYSTEM is about the recruitment process which is done online. The interview process here is handled by the system. It will help job 
 seekers in finding work and help companies in finding workers who are competent in their field. Candidates and Employers can use this portal without any geographical barrier, from
 any part of the world. Online Recruitment System is one such platform with some unique features to make recruitment process easier by providing flexibility to the recruiters and 
 job seekers. 
