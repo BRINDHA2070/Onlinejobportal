@@ -3,26 +3,26 @@
 {% load static %}
 {% ifequal error "yes" %}
 <script>
-    alert('Assign Status successfully');
+    alert('Status Assigned successfully');
     window.location=('{% url 'view_newrecruiter' %}');
 </script>
 {% endifequal %}
 
-<center><h2 style = "font-family : 'Monotype Corsiva' ; color : #E6120E ; font-weight : bold;margin-top:2%">View Recruiter</h2></center><hr>
-<div class="container-fluid" style="width:70%;margin-top:2%;background-color:burlywood;margin-bottom:3%">
+<center><h2 style = "font-family : 'verdana' ; color : #E6120E ; font-weight : bold;margin-top:2%">Recruiter Verfication</h2></center><hr>
+<div class="container-fluid" style="width:70%;margin-top:2%;background-color:rgb(243, 212, 171);margin-bottom:3%">
 
       <form method="post" action="">
-              <center> <label for="exampleInputEmail1" >Email ID</label>
+              <center> <label for="exampleInputEmail1" >Recruiter-Email ID</label>
         <input name="email" value="{{data.user.email}}" readonly style="width:60%;height:40px;margin-top:4%;margin-left:70px"></center><br><br>
 
-          <center> <label for="exampleInputEmail1">Assign Status</label>
+          <center> <label for="exampleInputEmail1">Status</label>
     {% csrf_token %}
   <select name="status" id="cars" style="border:2px solid black;width:60%;height:40px;margin-left:30px">
-      <option disabled selected>Choose Status</option>
-      <option value="accept">Accept</option>
+      <option disabled selected>Choose the Status</option>
+      <option value="accept">Accept the Recruiter</option>
       <option value="reject">Reject</option>
   </select></center>
-  <center><button type="submit" class="btn btn-danger" style="margin-top:2%;width:170px;height:30px;margin-bottom:2%;background-color:darkcyan;font-size:15px">SUBMIT</button>
+  <center><button type="submit" class="btn btn-danger" style="margin-top:2%;width:170px;height:30px;margin-bottom:2%;color:white;background-color:rgb(37, 0, 139);font-size:15px">OK</button>
 </center>
       </form>
     </div>

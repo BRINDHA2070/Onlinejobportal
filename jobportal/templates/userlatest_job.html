@@ -1,0 +1,50 @@
+{% extends 'user_nav.html' %}
+{% block body %}
+
+<center><marquee style = "font-family : 'family:verdana' ; font-size:30px;color :darkcyan
+ ; background-color:black;font-weight : bold;">Job List</marquee></center><hr>
+
+ <div class="container">
+<table class="table table-bordered" id="myTable">
+  <thead>
+  <tr >
+    <th>Sr. No</th>
+    <th>Company</th>
+    <th>Title</th>
+    <th>Location</th>
+    <th>Post_Date</th>
+    <th>Last_date</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+   <tbody>
+
+{% for i in data %}
+
+  <tr style="color:black">
+      <td>{{forloop.counter}}</td>
+    <td>{{i.recruiter.company}} </td>
+    <td>{{i.title}}</td>
+      <td>{{i.location}}</td>
+      <td>{{i.start_date}}</td>
+      <td>{{i.end_date}}</td>
+      {% if i.id in li %}
+      <td> Applied</td>
+      {% else %}
+      <td><a href="{% url 'job_detail' i.id %}">Apply</a>
+      {% endif %}
+</tr>
+
+   {% endfor %}
+
+    </tbody>
+</table>
+
+ </div>
+<script>
+            var el_up = document.getElementById("GFG_UP");
+
+            el_up.innerHTML =
+                "Click on the LINK for further confirmation.";
+</script>
+{% endblock %}

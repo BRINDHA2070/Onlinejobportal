@@ -4,7 +4,7 @@
 
 {% ifequal error "yes" %}
 <script>
-    alert('logged in successfully');
+    alert('Logging in Successfully');
     window.location=('{% url 'user_home' %}');
 </script>
 {% endifequal %}
@@ -15,7 +15,7 @@
 {% endifequal %}
 {% ifequal error "no" %}
 <script>
-    alert('user is not exist');
+    alert('Username does not exist');
 </script>
 {% endifequal %}
 <style>
@@ -47,22 +47,22 @@ body {
 
 }
 </style>
-<center><marquee style = "font-family : 'Monotype Corsiva' ; font-size:30px;color :darkcyan
+<center><marquee style = "font-family : 'Georgia' ; font-size:30px;color :rgb(81, 247, 108)
  ; background-color:black;font-weight : bold;margin-top:1%">User Login</marquee></center><hr>
 <div class="container" style="margin-top:1%">
 
       <form method="post" action="">
         {% csrf_token %}
   <div class="form-group">
-    <label for="exampleInputEmail1">First Name</label>
+    <label for="exampleInputEmail1">User Name</label>
     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="uname" placeholder="Enter Username">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pwd">
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" name="pwd">
   </div>
-  <button type="submit" class="btn btn-primary" style="margin-top:2%;color:darkcyan;background-color:black;height:40px; font-size: 15px;">SUBMIT</button>
-  <button class="btn btn-primary"style="color:white;background-color:black;margin-top:2%;height:40px; font-size: 15px;"><a href="{% url 'signupuser' %}" >CREATE AN ACCOUNT</a></button>
+  <button type="submit" class="btn btn-primary" style="margin-top:2%;color:white;background-color:navy;height:40px; font-size: 15px;">LOGIN</button>
+  <button class="btn btn-primary"style="background-color:navy;color:white;margin-top:2%;height:40px; font-size: 15px;"><a href="{% url 'signupuser' %}" >CREATE AN ACCOUNT</a></button>
 
       </form>
 </div>

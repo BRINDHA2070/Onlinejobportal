@@ -196,36 +196,41 @@ body {
 <body>
 <div class="container-fluid" style="padding:1%;margin-bottom:0%;">
     <img src="{% static 'images/job.png' %}" style="width:180px;margin-right:250px;margin-left:4%"><span style="padding:20px;font-weight:bold;font-size:30px">
-    <span style="color:rgba(17, 16, 16, 0.918);">Online Interview</span>
-     <span style="color:rgba(15, 13, 13, 0.932)">Processing System</span></h4>
+    <span style="color:rgba(17, 16, 16, 0.918);">ONLINE INTERVIEW</span>
+     <span style="color:rgba(15, 13, 13, 0.932)">PROCESSING SYSTEM</span></h4>
     
 </div>
 <nav class="navbar navbar-expand-sm" style="background-color:rgb(245, 8, 20)">
-  <a class="navbar-brand" href="#" style="color:white;font-family:'Monotype Corsiva';font-size:30px;font-weight:bold;margin-left:100px;margin-right:0">
+  <a class="navbar-brand" href="#" style="color:white;font-family:'Georgia';font-size:30px;font-weight:bold;margin-left:100px;margin-right:0">
  Job Portal</a>
 
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
       <a class="nav-link" href="{% url 'home'  %}" style="color:white;margin-left:280px">
-      <i class="fa fa-institution" style="margin-right:4px"></i>HOME</a>
+      <i class="fa fa-institution" style="margin-right:4px"></i>HOME PAGE </a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" href="{% url 'latest_job'  %}" style="color:white;">
+      <i class="fa fa-users" style="margin-right:4px"></i>  LATEST JOB</a>
+    </li>
+
+    <li class="nav-item">
   <a class="nav-link" href="{% url 'login_user' %}" style="color:white;text-align:right">
-      <i class="fa fa-user-plus" style="margin-right:4px"></i>USER LOGIN</a>
+      <i class="fa fa-user-plus" style="margin-right:4px"></i>  USER LOGIN</a>
     </li>
       <li class="nav-item">
             <a class="nav-link" href="{% url 'recruiter_login' %}" style="color:white;text-align:right">
-            <i class="fa fa-sign-language" style="margin-right:4px"></i>RECRUITER LOGIN</a>
+            <i class="fa fa-sign-language" style="margin-right:4px"></i>  RECRUITER LOGIN</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'login_admin' %}" style="color:white;text-align:right">
-        <i class="fa fa-sign-in" style="margin-right:4px"></i>ADMIN LOGIN</a>
+        <i class="fa fa-sign-in" style="margin-right:4px"></i>  ADMIN LOGIN</a>
       
       </li>
  <li class="nav-item">
       <a class="nav-link" href="{% url 'contact' %}" style="color:white">
-      <i class="fa fa-address-book-o" style="margin-right:4px"></i>CONTACT</a>
+      <i class="fa fa-address-book-o" style="margin-right:4px"></i>  CONTACT US</a>
     </li>
 
 
@@ -244,21 +249,21 @@ body {
 		<div class="container">
 			<div class="col-md-4 w3layouts-footer">
 				<h3>Contact Information</h3>
-					<p style="color:yellow;font-size:18px;margin-left:30px"><span style="color:red"><i class="fa fa-map-marker" aria-hidden="true"></i></span>46, BHARATHI NAGAR, RAJAPALAYAM, INDIA </p>
-					<p style="color:yellow;font-size:18px"><span style="color:red"><i class="fa fa-envelope" aria-hidden="true"></i></span>kavi@gmail.com</a> </p>
-					<p style="color:yellow;font-size:18px"><span style="color:red;width:20px"><i class="fa fa-mobile" aria-hidden="true"></i></span>P: 7548821767 / 9842521981 </p>
-					<p style="color:yellow;font-size:18px;margin-left:30px"><span style="color:red"><i class="fa fa-globe" aria-hidden="true"></i></span>W: www.onlineinterviewprocessing.com</a></p>
+					<p style="color:white;font-size:18px;margin-left:30px"><span style="color:red"><i class="fa fa-map-marker" aria-hidden="true"></i></span>  245C/1, Bharathi Nagar, Rajapalayam, India </p>
+					<p style="color:white;font-size:18px"><span style="color:red"><i class="fa fa-envelope" aria-hidden="true"></i></span>  supportoips@yahoo.com</a> </p>
+					<p style="color:white;font-size:18px"><span style="color:red;width:20px"><i class="fa fa-mobile" aria-hidden="true"></i></span>  7548821767 / 9842521981 </p>
+					<p style="color:white;font-size:18px;margin-left:30px"><span style="color:red"><i class="fa fa-globe" aria-hidden="true"></i></span> www.onlineinterviewprocessing.com</a></p>
 			</div>
 			<div class="col-md-4 wthree-footer">
 				<h3>Online Placement</h3>
-				<p style="color:yellow;font-size:18px;margin-left:30px">An employment website is a website that deals specifically with employment or careers. Many employment websites are designed to allow employers to post job requirements for a position to be filled and are commonly known as job boards</p>
+				<p style="color:white;font-size:18px;margin-left:30px">OnlineInterviewProcessing.com is one of the Jobsite for jobseekers in India.Get daily job alerts, job details and GK updates every day on our website. OnlineInterviewProcessing.com is the only website for appyling to top MNC Jobs and startups all over India. Register Now to benefit from our unlimited job services!</p>
 			</div>
 			<div class="col-md-4 w3-agile">
 				<h3>Newsletter</h3>
-				<p style="color:yellow;font-size:18px;margin-left:30px">if you want the any extra information then send me your email id</p>
+				<p style="color:white;font-size:18px;margin-left:30px">For further information share your email address with us</p>
 				<form action="#" method="post">
                     {% csrf_token %}
-					<input type="email" name="Email" placeholder="Email" required="">
+					<input type="email" name="Email" placeholder="Enter Email" required="">
 					<input type="submit" value="Send">
 				</form>
 			</div>

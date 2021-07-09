@@ -138,6 +138,10 @@ def view_newrecruiter(request):
     data=Recruiter.objects.all()
     d={'data':data}
     return render(request,'view_newrecruiter.html',d)
+def view_recruiter(request):
+    data=Recruiter.objects.all()
+    d={'data':data}
+    return render(request,'view_recruiter.html',d)
 def Assign_status(request,pid):
     submit = Recruiter.objects.get(id=pid)
     error = False
@@ -148,6 +152,18 @@ def Assign_status(request,pid):
         error = "yes"
     d = {'error':error,'data':submit}
     return render(request,'assign_status.html',d)
+def delete_recruiter(request,pid):
+    data=Recruiter.objects.get(id=pid)
+    data.delete()
+    return redirect('view_recruiter')
+def delete_job(request,pid):
+    data=Add_job.objects.get(id=pid)
+    data.delete()
+    return redirect('recruiter_viewjob')
+def delete_user(request,pid):
+    data=SignupUser.objects.get(id=pid)
+    data.delete()
+    return redirect('view_user')
 
 def view_user(request):
     data=SignupUser.objects.all()
@@ -215,9 +231,19 @@ def add_job(request):
         error = True
     d = {'error':error,'data':data}
     return render(request, 'add_job.html',d)
+def recruiter_viewjob(request):
+    user=User.objects.get(id=request.user.id)
+    recruiter=Recruiter.objects.get(user=user)
+    data=Add_job.objects.filter(recruiter=recruiter)
+    d={'data':data}
+    return render(request,'recruiter_viewjob.html',d)
 def recruiter_logout(request):
     logout(request)
     return redirect('home')
+def latest_job(request):
+    data=Add_job.objects.all()
+    d={'data':data}
+    return render(request,'latest_job.html',d)
 def user_home(request):
     user=User.objects.get(id=request.user.id)
     data=SignupUser.objects.get(user=user)
@@ -257,11 +283,62 @@ def UserEdit_profile(request):
         error = True
     d = {'error':error,'pro':pro}
     return render(request, 'useredit_profile.html',d)
+def userlatest_job(request):
+    data=Add_job.objects.all()
+    user=User.objects.get(id=request.user.id)
+    sign=SignupUser.objects.get(user=user)
+    data1=Apply.objects.filter(sign=sign)
+    li=[]
+    for i in data1:
+        li.append(i.job.id)
+    d={'data':data,'li':li}
+    return render(request,'userlatest_job.html',d)
 def logout_user(request):
     logout(request)
     return redirect('home')
+def job_detail(request,pid):
+    data=Add_job.objects.get(id=pid)
+    d={'data':data}
+    return render(request,'job_detail.html',d)
+def applyjob(request,pid):
+    user=User.objects.get(id=request.user.id)
+    data=SignupUser.objects.get(user=user)
+    data1=Add_job.objects.get(id=pid)
+    date1 = date.today()
+    i3=data1.end_date.year
+    i1=data1.end_date.day
+    i2=data1.end_date.month
+    n3=date1.year
+    n1=date1.day
+    n2=date1.month
+    s3=data1.start_date.year
+    s1=data1.start_date.day
+    s2=data1.start_date.month
+    error=""
+    day1=i1+(i2*30)+(i3*365)
+    day2=s1+(s2*30)+(s3*365)
+    day3=n1+(n2*30)+(n3*365)
+    if day3>day1:
+        error="notable"
+    elif day2>day3:
+        error="close"
+    else:
+        if request.method == 'POST':
+            i = request.FILES['image']
+            Apply.objects.create(image=i,sign=data,job=data1)
+            error="able"
+    d={'error':error}
+    return render(request,'apply.html',d)
 
-
+def view_apply(request):
+    user=User.objects.get(id=request.user.id)
+    sign=Recruiter.objects.get(user=user)
+    data=Apply.objects.all()
+    li=[]
+    for i in data:
+        li.append(i.job.id)
+    d={'data':data,'li':li,'sign':sign}
+    return render(request,'view_apply.html',d)
 def Change_Password(request):
     error = ""
     if request.method=="POST":
@@ -297,3 +374,9 @@ def Contact(request):
     return render(request,'contact.html')
 def About(request):
     return render(request,'about.html')
+def test_preparation(request):
+    return render(request,'test preparation.html')   
+def selection_process(request):
+    return render(request,'selection_process.html')        
+def user_form(request):
+    return render(request,'user_form.html') 

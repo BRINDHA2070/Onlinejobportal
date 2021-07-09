@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        body {
+          font-family: Arial;
+          font-size: 17px;
+        }
+        
+        .container {
+          position: relative;
+          max-width: 90%;
+          margin: 0 auto;
+          margin-bottom:3%
+        }
+        
+        .container img {vertical-align: middle;}
+        
+        .container .content {
+          position: absolute;
+          bottom: 0;
+          background: rgb(0, 0, 0); /* Fallback color */
+          background: rgba(0, 0, 0, 0.5);
+          color: #f1f1f1;
+          width: 100%;
+        }
+        </style>
+        
+        <center><marquee style = "font-family : 'Georgia' ; font-size:20px;color :rgb(60, 248, 60)
+         ; background-color:black;font-weight : bold;margin-top:1%">FORMS</marquee></center><hr>
+        <div class="container" style="margin-top:;"> 
+
+<body>
+
+<h2>    Forms  </h2>
+
+<form action="mailto:someone@example.com" method="post" enctype="text/plain">
+Name:<br>
+<input type="text" name="name"><br><P></P>
+Company:<br>
+<input type="text" name="mail"><br><P></P>
+Upload file:<br>
+<input type="file" id="myFile" name="filename"><br><p></p>
+Comment:<br>
+<input type="text" name="comment" size="50"><br><br><P></P>
+<input type="submit" value="Send">
+<input type="reset" value="Reset">
+</form>
+
+</body>
+</html>

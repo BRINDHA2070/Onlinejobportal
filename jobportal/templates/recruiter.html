@@ -31,16 +31,17 @@ body {
 }
 </style>
 
-<center><marquee style = "font-family : 'Monotype Corsiva' ; font-size:20px;color :darkcyan
- ; background-color:black;font-weight : bold;margin-top:1%">Recruiter Signup</marquee></center><hr>
+<center><marquee style = "font-family : 'Georgia' ; font-size:20px;color :rgb(105, 245, 70)
+ ; background-color:black;font-weight : bold;margin-top:1%">Recruiter Registration </marquee></center><hr>
 <div class="container" style="margin-top:;">
 <form method="post" action="" enctype="multipart/form-data">
     {% csrf_token %}
-    <div class="form-row" style="fontsize:10px">
+    <div class="form-row" style="font-size:17px">
     <div class="form-group col-md-6">
       <label for="inputEmail4" style="">First Name</label>
       <input type="text" class="form-control" placeholder="Enter First Name" name="uname" id="inputEmail4">
     </div>
+    <div class="form-row" style="font-size:17px"></div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Last Name</label>
       <input type="text" class="form-control" name="lname" placeholder="Enter Last Name" id="inputPassword4">
@@ -48,8 +49,8 @@ body {
   </div>
      <div class="form-row">
           <div class="form-group col-md-6">
-      <label for="inputPassword4">Company</label>
-      <input type="text" class="form-control" placeholder="Enter Company" name="company" id="inputPassword4">
+      <label for="inputPassword4">Company Name </label>
+      <input type="text" class="form-control" placeholder="Enter Your Company Name" name="company" id="inputPassword4">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Password</label>
@@ -58,8 +59,8 @@ body {
   </div>
     <div class="form-row">
     <div class="form-group col-md-12">
-    <label for="exampleInputPassword1">Contact</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Contact Detail" name="contact">
+    <label for="exampleInputPassword1">Contact No.</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter Contact Number" name="contact">
     </div></div>
 
     <div class="form-row">
@@ -68,24 +69,24 @@ body {
     <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Enter Email Address" name="email">
     </div></div>
 
-
+  
     <div class="form-row">
 
 
     <div class="form-group col-md-6" >
-      <label for="inputEmail4">gender</label><br>
+      <label for="inputEmail4">Gender</label><br>
         <div style="border:1px solid lightgrey;padding:5px;border-radius:6px">
       <div class="custom-control custom-radio custom-control-inline">
   <input type="radio" id="customRadioInline1" name="gender" class="custom-control-input" value="male">
-  <label class="custom-control-label" for="customRadioInline1">male</label>
+  <label class="custom-control-label" for="customRadioInline1">Male</label>
 </div>
 <div class="custom-control custom-radio custom-control-inline">
   <input type="radio" id="customRadioInline2" name="gender" class="custom-control-input" value="female">
-  <label class="custom-control-label" for="customRadioInline2">female</label>
+  <label class="custom-control-label" for="customRadioInline2">Female</label>
 </div>  </div>  </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4" >Image</label>
-      <input type="file" class="form-control"   style=":30px" name="image" id="inputPassword4">
+      <input type="file" class="form-control"   style="30px" name="image" id="inputPassword4">
     </div>
   </div>
 
@@ -96,7 +97,7 @@ body {
 
 {% if error %}
 <script>
-    alert('Regitered Successfully');
+    alert('Registered Successfully');
     window.location = "{% url 'home' %}";
 </script>
 {% endif %}

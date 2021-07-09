@@ -1,0 +1,42 @@
+{% extends 'recruiter_nav.html' %}
+{% block body %}
+{% load static %}
+
+{% ifequal error "notable" %}
+<script>
+    alert('Applications Closed Now');
+    window.location = "{% url 'userlatest_job' %}";
+</script>
+{% endifequal %}
+{% ifequal error "close" %}
+<script>
+    alert(' Not Yet Opened ');
+    window.location = "{% url 'userlatest_job' %}";
+</script>
+{% endifequal %}
+{% ifequal error "able" %}
+<script>
+    alert(' Applied Successfully');
+    window.location = "{% url 'userlatest_job' %}";
+</script>
+{% endifequal %}
+   <center><marquee style = "font-family : 'Georgiaa' ; font-size:30px;color :rgb(81, 250, 123)
+ ; background-color:black;font-weight : bold;">Apply for your the Job here</marquee></center><hr>
+<div class="container-fluid" style="width:70%;margin-top:5%">
+<form method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-row">
+
+    <div class="form-group col-md-12">
+        <center> <label for="inputPassword4" style="font-size:30px">Upload your Resume</label></center>
+      <input type="file" class="form-control"  name="image" id="inputPassword4">
+    </div>
+  </div>
+
+    <button type="submit" class="btn btn-danger" style="width:900px;height:40px;margin-bottom:6%;background-color:navy;font-size:20px">Submit</button>
+</form>
+</div></div>
+
+
+{% endblock %}

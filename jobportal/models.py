@@ -1,18 +1,18 @@
-
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
 class Recruiter(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
-    mobile = models.CharField(null=True,max_length=20)
+    mobile = models.IntegerField(null=True)
     image = models.FileField(null=True)
     company= models.CharField(max_length=100,null=True)
     gender= models.CharField(max_length=100,null=True)
     type=models.CharField(max_length=100,null=True)
     status=models.CharField(max_length=100,null=True)
-    def str(self):
+    def _str_(self):
         return self.user.username
+		
 		
 class SignupUser(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
@@ -44,5 +44,9 @@ class Apply(models.Model):
     def __str__(self):
         return self.sign.user.username+" "+self.job.title
 
+class Send_Feedback(models.Model):
+    profile = models.ForeignKey( Recruiter, on_delete=models.CASCADE, null=True)
+    message1 = models.TextField(null=True)
+    date = models.CharField(max_length=30, null=True)
 
 

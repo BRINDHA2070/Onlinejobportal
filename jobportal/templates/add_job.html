@@ -1,0 +1,86 @@
+{% extends 'recruiter_nav.html' %}
+{% block body %}
+{% load static %}
+
+
+
+   <center><marquee style = "font-family : 'Georgis\a' ; font-size:30px;color :rgb(152, 253, 127)
+ ; background-color:black;font-weight : bold;">ADD JOB DETAILS</marquee></center><hr>
+<div class="container-fluid" style="width:70%;margin-top:2%">
+<form method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputEmail4">Company Name</label>
+      <input type="text" class="form-control" value="{{data.company}}" name="company" readonly>
+    </div>
+
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputEmail4">Job Title</label>
+      <input type="text" class="form-control" placeholder="Enter Title " name="title" id="inputEmail4">
+    </div>
+
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-12">
+    <label for="exampleInputPassword1">Start Date</label>
+    <input type="date" class="form-control" id="exampleInputPassword1" name="start_date">
+    </div></div>
+
+    <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputEmail4">End Date</label>
+      <input type="date" class="form-control" name="end_date" id="inputEmail4">
+    </div></div>
+<div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Salary </label>
+      <input type="text" class="form-control"  name="position" id="inputPassword4">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Company Logo</label>
+      <input type="file" class="form-control"  name="image" id="inputPassword4" required>
+    </div>
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Years of Experience </label>
+      <input type="text" class="form-control"  name="experience" id="inputPassword4">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Location</label>
+      <input type="text" class="form-control"  name="location" id="inputPassword4">
+    </div>
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Skills Needed </label>
+      <input type="text" class="form-control"  name="skills" id="inputPassword4">
+    </div>
+    </div>
+<div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputPassword4">Job Description </label>
+        <textarea name="description"></textarea>
+    </div>
+  </div>
+
+
+            <button type="submit" class="btn btn-danger" style="width:300px;height:30px;margin-bottom:3%;color:white;background-color:navy">Submit</button>
+</form>
+</div></div>
+
+
+{% if error %}
+<script>
+    alert('Job Details Added Successfully');
+    window.location = "";
+</script>
+{% endif %}
+
+{% endblock %}
